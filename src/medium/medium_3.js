@@ -18,9 +18,9 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-    const newArray= car_data.map(element => element.x)
-    let result = car_data.filter(element => element.horsepower > minHorsepower)
-    .filter(element => element.torque > minTorque).sort(function (p1, p2) {
+    
+    let result = car_data.filter(element => element.horsepower >= minHorsepower)
+    .filter(element => element.torque >= minTorque).sort(function (p1, p2) {
         return p2.horsepower - p1.horsepower;
       });
     return result;
@@ -38,11 +38,11 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-    let result = car_data.filter(element => element.city_mpg > minCity)
-    .filter(element => element.highway_mpg > minHighway).sort(function (p1, p2) {
+    let result = car_data.filter(element => element.city_mpg >= minCity)
+    let result2 = result.filter(element => element.highway_mpg >= minHighway).sort(function (p1, p2) {
         return p2.highway_mpg - p1.highway_mpg;
       });
-    return result;
+    return result2;
 }
 
 
@@ -55,7 +55,7 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-    let result = car_data.filter(element => element.id.toLowerCase() == searchTerm.toLowerCase())
+    let result = car_data.filter(element => element.id.toLowerCase().includes(searchTerm.toLowerCase()))
     return result;
 }
 
