@@ -125,7 +125,7 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-    let result = flase
+    let result = false
     for (var i =0; i<arr.length; i+=2){
         if (test(arr[i])){
             result=true
@@ -200,5 +200,5 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     fir = filter(arr, test)
-    return(fir.pass.length==n)
+    return(fir.pass.length == n)
 };
