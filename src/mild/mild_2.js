@@ -49,7 +49,7 @@ return result
  */
 export function removeKey(object, key) {
 if (object[key]){
-   delete object.key;
+   delete object[key];
 }
 return
 }
@@ -71,9 +71,12 @@ return
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
-   let result = Object.assign({}, object);
+   var result = {};
+   for (var k of Object.keys(object)){
+      result[k]=object[k]
+   }
    if (result[key]){
-      delete result.key;
+      delete result[key];
    }
    return result;
 }
@@ -100,10 +103,13 @@ export function removeKeyNonDestructive(object, key) {
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
-   let newobj = Object.assign({}, object);
+   var newobj = {};
+   for (var k of Object.keys(object)){
+      newobj[k]=object[k]
+   }
    for (let i =0; i<keyList.length;i++){
       if (newobj[keyList[i]]){
-         delete newobj.keyList[i];
+         delete newobj[keyList[i]];
       }
    }
 }

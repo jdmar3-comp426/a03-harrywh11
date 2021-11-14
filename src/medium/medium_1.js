@@ -27,10 +27,10 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-let narray = array.sort;
+let narray = array.sort();
 let l = narray.length;
 if ((l%2)==0){
-    return (narray[l/2]+narray[(l/2)-1]);
+    return ((narray[l/2]+narray[(l/2)-1])/2);
 }
 else{
     return (narray[(l-1)/2]);
