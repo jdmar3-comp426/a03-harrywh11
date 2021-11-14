@@ -112,4 +112,5 @@ export function removeKeys(object, keyList) {
          delete newobj[keyList[i]];
       }
    }
+   return newobj
 }

@@ -27,13 +27,14 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-let narray = array.sort();
+let narray = array.sort(((a, b) => a - b));
 let l = narray.length;
+let mid = Math.floor(l/2)
 if ((l%2)==0){
-    return ((narray[l/2]+narray[(l/2)-1])/2);
+    return ((narray[mid]+narray[mid-1])/2);
 }
 else{
-    return (narray[(l-1)/2]);
+    return (narray[mid]);
 }
 }
 
@@ -69,6 +70,6 @@ for (let i =0;i<l;i++){
 }
 vari = vari/l
 let stdv = vari**0.5
-return {min: mini, max: maxi, median: medi, variance: vari, mean: ave, length: l, sum: total, standard_deviation: stdv}
+return {length: l, sum: total, mean: ave,median: medi, min: mini, max: maxi,  variance: vari,   standard_deviation: stdv}
 }
 
