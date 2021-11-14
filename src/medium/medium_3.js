@@ -18,7 +18,12 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    const newArray= car_data.map(element => element.x)
+    let result = car_data.filter(element => element.horsepower > minHorsepower)
+    .filter(element => element.torque > minTorque).sort(function (p1, p2) {
+        return p2.horsepower - p1.horsepower;
+      });
+    return result;
 }
 
 
